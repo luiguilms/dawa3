@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Matrículas</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f0f8ff; /* Color de fondo de la página */
+            font-family: 'Century Gothic', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Esto asegura que la página ocupe toda la altura de la ventana */
+            margin: 0; /* Elimina el margen predeterminado del cuerpo */
+        }
+
+        .container {
+            background-color: rgba(173, 216, 230, 0.7); /* Fondo celeste semi-transparente */
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Sistema de Matrículas</h1>
+        <hr>
+
+        <h3>Seleccione un curso:</h3>
+        <form action="/confirmacion" method="post">
+            <div class="form-group">
+                <label for="curso">Curso:</label>
+                <select class="form-control" id="curso" name="curso">
+                    <option value="Java">Java - S/ 1200</option>
+                    <option value="PHP">PHP - S/ 800</option>
+                    <option value=".NET">.NET - S/ 1500</option>
+                </select>
+            </div>
+            <h3>Selección los Módulos a inscribirte</h3>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="modulo" id="basico" value="Basico">
+                <label class="form-check-label" for="basico">
+                    Básico
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="modulo" id="intermedio" value="Intermedio">
+                <label class="form-check-label" for="intermedio">
+                    Intermedio
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="modulo" id="avanzado" value="Avanzado">
+                <label class="form-check-label" for="avanzado">
+                    Avanzado
+                </label>
+            </div>
+            <h3>Seleccione el medio de pago:</h3>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="medioPago" id="tarjeta" value="Tarjeta de crédito">
+                <label class="form-check-label" for="tarjeta">
+                    Tarjeta de crédito
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="medioPago" id="efectivo" value="Pago en efectivo">
+                <label class="form-check-label" for="efectivo">
+                    Pago en efectivo - 10% de descuento
+                </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Confirmar Matrícula</button>
+        </form>
+    </div>
+</body>
+
+</html>

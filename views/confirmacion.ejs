@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Confirmación de Matrícula</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f0f8ff; /* Color de fondo de la página */
+            font-family: 'Century Gothic', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Esto asegura que la página ocupe toda la altura de la ventana */
+            margin: 0; /* Elimina el margen predeterminado del cuerpo */
+        }
+
+        .container {
+            background-color: rgba(173, 216, 230, 0.7); /* Fondo celeste semi-transparente */
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Confirmación de Matrícula</h1>
+        <hr>
+
+        <h3>Curso seleccionado:</h3>
+        <p><strong>Curso:</strong> <%= curso %></p>
+
+        <h3>Módulos seleccionados:</h3>
+        <ul>
+            <% for (let i = 0; i < modulos.length; i++) { %>
+                <li><strong>Módulo:</strong> <%= modulos[i] %></li>
+            <% } %>
+        </ul>
+
+        <h3>Medio de pago seleccionado:</h3>
+        <p><strong>Medio de Pago:</strong> <%= medioPago %></p>
+
+        <h3>Detalle de matrícula:</h3>
+        <ul>
+            <li><strong>Curso:</strong> <%= curso %></li>
+            <li><strong>Módulos:</strong> <%= modulos.join(', ') %></li>
+            <li><strong>Medio de Pago:</strong> <%= medioPago %></li>
+        </ul>
+
+        <% let costoTotal = 0; %>
+        <% for (let i = 0; i < modulos.length; i++) { %>
+            <% if (curso === 'Java') { %>
+                <% costoTotal += 1200; %>
+            <% } else if (curso === 'PHP') { %>
+                <% costoTotal += 800; %>
+            <% } else if (curso === '.NET') { %>
+                <% costoTotal += 1500; %>
+            <% } %>
+        <% } %>
+
+        <% if (medioPago === 'Pago en efectivo') { %>
+            <% const descuento = costoTotal * 0.10; %>
+            <% costoTotal -= descuento; %>
+            <p><strong>Descuento en efectivo (10%):</strong> - S/ <%= descuento.toFixed(2) %></p>
+        <% } %>
+
+        <h3>Total a pagar:</h3>
+        <p><strong>Total:</strong> S/ <%= costoTotal.toFixed(2) %></p>
+    </div>
+</body>
+
+</html>
